@@ -9,7 +9,7 @@ let app = express(),
 // setup the express app to handle data
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static(path.join(__dirname, './app/public'))); // this is the server's root folder
+app.use(express.static('./app/public')); // this is the server's root folder
 
 // app router
 require("./app/routing/apiRoutes")(app);
