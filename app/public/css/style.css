@@ -42,13 +42,30 @@ h1, h2 {
     max-width: 300px;
     border-radius: 100px;
 }
-.questions {
+.questions, .personal-info {
     width: 100%;
     max-width: 800px;
     margin: 30px auto;
     padding: 30px;
     background-color: #fff;
     border-radius: 4px;
+}
+.questions {
+    display: none;
+}
+.personal-info label {
+    padding-left: 10px;
+    opacity: .6;
+}
+.personal-info input {
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 0;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+.personal-info input:focus {
+    box-shadow: none;
 }
 .answer {
     margin-left: auto;
