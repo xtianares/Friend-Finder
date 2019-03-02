@@ -9,4 +9,9 @@ module.exports = function(app) {
 		res.json(friends);
 	});
 
+	// for posting and checking friend match
+	app.post('/api/friends', function(req, res) {
+		res.json(friends);
+	});
+
 };
