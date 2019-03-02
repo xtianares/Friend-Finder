@@ -31,6 +31,7 @@ body {
 }
 .start, .survey {
     height: 80vh;
+    min-height: 500px;
 }
 h1, h2 {
     color: #fff;
@@ -50,6 +51,9 @@ h1, h2 {
     border-radius: 4px;
 }
 .answer {
+    margin-left: auto;
+    margin-right:auto;
+    /* max-width: 300px; */
     margin-top: 20px;
 }
 .answer:before {
