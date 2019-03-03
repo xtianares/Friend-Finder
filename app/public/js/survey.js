@@ -29,7 +29,7 @@ const showQuestion = (index) => {
 
         // handle api call here for comparison
         $.post("/api/friends", person).done(function(data) {
-            // console.log("response:" + JSON.stringify(data));
+            console.log("response:" + JSON.stringify(data));
 
         });
 
