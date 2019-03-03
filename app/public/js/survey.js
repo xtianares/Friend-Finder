@@ -17,18 +17,27 @@ let questionIndex = 0,
     answers = [],
     person = {};
 
-const showQuestion = (questionIndex) => {
+const showQuestion = (index) => {
     // render the questions one by one from the quesrtions array
     if (answers.length < questions.length) {
         $(".questions").fadeIn("fast");
-        $(".question").html(questions[questionIndex]); // display current question
+        $(".question").html(questions[index]); // display current question
     }
     else {
-        // handle api call here for comparison
-        $(".personal-info").fadeIn("fast");
-
         person.scores = answers;
-        console.log(person);
+        // console.log(person);
+
+        // handle api call here for comparison
+
+        // clear person and reinitialize the survey
+        questionIndex = 0;
+        answers = [];
+        person = {};
+        console.log("Reinitialized survey...")
+
+        $("#name").val(""),
+        $("#photo").val("");
+        $(".personal-info").fadeIn("fast");
     }
 }
 
@@ -44,7 +53,7 @@ $(".personal-info").on("click", ".take-survey", function(e) {
     person.name = name;
     person.photo = photo;
 
-    console.log(person);
+    // console.log(person);
 })
 
 $(".answer").on("click", "a", function(e) {
@@ -52,9 +61,9 @@ $(".answer").on("click", "a", function(e) {
     let answer = $(this).text();
     if (questionIndex < questions.length) {
         answers.push(parseInt(answer));
-        console.log(answers);
         questionIndex++;
-        console.log(questionIndex);
+        // console.log(answers);
+        // console.log(questionIndex);
         $(".questions").fadeOut("fast", function() {
             showQuestion(questionIndex);
         });
