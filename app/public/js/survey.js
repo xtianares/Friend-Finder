@@ -31,17 +31,22 @@ const showQuestion = (index) => {
         $.post("/api/friends", person).done(function(data) {
             console.log("response:" + JSON.stringify(data));
 
+            // call modal box and show best match
+            let friendHTML = `hello`;
+            $('#fiend-match .modal-body').html(friendHTML);
+
+
+            $('#fiend-match').modal('show');
+
+            // clear person data and reinitialize the survey
+            questionIndex = 0;
+            answers = [];
+            person = {};
+            console.log("Reinitialized survey...")
+            $("#name").val(""),
+            $("#photo").val("");
+            $(".personal-info").fadeIn("fast");
         });
-
-        // clear person and reinitialize the survey
-        questionIndex = 0;
-        answers = [];
-        person = {};
-        console.log("Reinitialized survey...")
-
-        $("#name").val(""),
-        $("#photo").val("");
-        $(".personal-info").fadeIn("fast");
     }
 }
 
@@ -53,10 +58,9 @@ $(".personal-info").on("click", ".take-survey", function(e) {
         showQuestion(questionIndex);
     });
 
-    // setting the person"s info
+    // setting the person's info
     person.name = name;
     person.photo = photo;
-
     // console.log(person);
 })
 
@@ -68,7 +72,7 @@ $(".answer").on("click", "a", function(e) {
         questionIndex++;
         // console.log(answers);
         // console.log(questionIndex);
-        $(".questions").fadeOut("fast", function() {
+        $(".questions").fadeOut(400, function() {
             showQuestion(questionIndex);
         });
     }

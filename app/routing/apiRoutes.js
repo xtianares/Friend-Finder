@@ -3,7 +3,6 @@ var friends = require('../data/friends.js');
 
 // setting all API routes here
 module.exports = function(app) {
-
     // for a raw list of friends in JSON format
     app.get('/api/friends', (req, res) => {
         res.json(friends);
@@ -14,36 +13,33 @@ module.exports = function(app) {
         // Here we take the result of the user's survey POST and parse it.
         let userInput = req.body,
             userName = userInput.name,
-            userScores = userInput.scores;
-
-        // check for a friend match
-        let matchArr = [], // this will store all the friend's score comparison, lowest score is the match
+            userScores = userInput.scores,
+            scoreArr = [], // this will store all the friend's score comparison, lowest score is the match
             scoreDiff = 0; // this will store the current friend's total score
 
-        friends.forEach( (item, index) => {
-            // console.log(item.scores);
-            // console.log(index);
+            console.log(userScores);
 
+        friends.forEach( (item, index) => {
             let scores = item.scores; // scores of the current potential fiend
 
             scores.forEach( (item, index) => {
-                let questionDiff = Math.abs(item - userScores[index]); // diff for current question
+                let questionDiff = Math.abs(item - parseInt(userScores[index])); // diff for current question
                 scoreDiff += questionDiff; // adding the current question's diff to the total diff
                 // console.log(scoreDiff);
             });
-            matchArr.push(scoreDiff);
+            scoreArr.push(scoreDiff);
             scoreDiff = 0;
-            // console.log(matchArr);
+            // console.log(scoreArr);
         });
 
-        let lowestScore = Math.min(...matchArr), // determine the lowest score, which is the match
-            indexOfLowestScore = matchArr.indexOf(lowestScore); // determine the index of the first match
+        let lowestScore = Math.min(...scoreArr), // determine the lowest score in the array
+            indexOfLowestScore = scoreArr.indexOf(lowestScore), // determine the index of first lowest score
+            friendMatch = friends[indexOfLowestScore];
 
-        // need to push new person after match is found otherwise person will match self
+        // adding new person to the friends list array
         friends.push(userInput);
 
-        // need to update this with the match
-        res.json(friends[indexOfLowestScore]);
+        // sending back the friend match
+        res.json(friendMatch);
     });
-
 };
