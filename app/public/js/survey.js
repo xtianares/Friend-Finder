@@ -28,6 +28,10 @@ const showQuestion = (index) => {
         // console.log(person);
 
         // handle api call here for comparison
+        $.post("/api/friends", person).done(function(data) {
+  			console.log("response:" + JSON.stringify(data));
+
+  		});
 
         // clear person and reinitialize the survey
         questionIndex = 0;
@@ -49,7 +53,7 @@ $(".personal-info").on("click", ".take-survey", function(e) {
         showQuestion(questionIndex);
     });
 
-    // setting the person's info
+    // setting the person"s info
     person.name = name;
     person.photo = photo;
 
