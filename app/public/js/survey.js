@@ -64,14 +64,24 @@ $(".personal-info").on("click", ".take-survey", function(e) {
     e.preventDefault();
     let name = $("#name").val(),
         photo = $("#photo").val();
-    $(".personal-info").fadeOut("fast", function() {
-        showQuestion(questionIndex);
-    });
 
-    // setting the person's info
-    person.name = name;
-    person.photo = photo;
-    // console.log(person);
+    if (name != "" && photo != "") {
+        $(".personal-info").fadeOut("fast", function() {
+            showQuestion(questionIndex);
+        });
+
+        // setting the person's info
+        person.name = name;
+        person.photo = photo;
+        // console.log(person)
+
+        $("#name").removeClass("is-invalid").attr("placeholder", "");
+        $("#photo").removeClass("is-invalid").attr("placeholder", "");
+    }
+    else {
+        $("#name").addClass("is-invalid").attr("placeholder", "Please enter name");
+        $("#photo").addClass("is-invalid").attr("placeholder", "Please enter url");
+    }
 })
 
 $(".answer").on("click", "a", function(e) {

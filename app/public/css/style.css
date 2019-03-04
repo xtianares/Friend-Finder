@@ -73,20 +73,18 @@ h1, h2 {
     /* max-width: 300px; */
     margin-top: 20px;
 }
-.answer:before {
-    display: inline-block;
+.answer:before, .answer:after {
+    display: none;
     margin-right: 20px;
     content: "Disagree";
     vertical-align: middle;
     width: 100px;
     text-align: right;
+    opacity: .6;
 }
 .answer:after {
-    display: inline-block;
     margin-left: 20px;
     content: "Agree";
-    vertical-align: middle;
-    width: 100px;
     text-align: left;
 }
 .answer a {
@@ -122,6 +120,10 @@ h1, h2 {
     .navbar {
         flex-flow: row nowrap; !important;
     }
+    .answer:before, .answer:after {
+        display: inline-block;
+    }
+
 
 }
 @media (min-width: 992px) {
