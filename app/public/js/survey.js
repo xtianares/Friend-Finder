@@ -30,11 +30,21 @@ const showQuestion = (index) => {
         // handle api call here for comparison
         $.post("/api/friends", person).done(function(data) {
             console.log("response:" + JSON.stringify(data));
+            let {name, photo} = data;
+                photo = photo.includes("http") ? photo : "https://via.placeholder.com/300";
 
             // call modal box and show best match
-            let friendHTML = `hello`;
+            let friendHTML = `
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-7"><img class="img-fluid img-thumbnail mt-2 mb-2" src="${photo}"></div>
+                        <div class="col-md-5">
+                            <p class="mt-2">Name:</p>
+                            <h4>${name}</h4>
+                        </div>
+                    </div>
+                </div>`;
             $('#fiend-match .modal-body').html(friendHTML);
-
 
             $('#fiend-match').modal('show');
 
@@ -68,7 +78,7 @@ $(".answer").on("click", "a", function(e) {
     e.preventDefault();
     let answer = $(this).text();
     if (questionIndex < questions.length) {
-        answers.push(parseInt(answer));
+        answers.push(answer);
         questionIndex++;
         // console.log(answers);
         // console.log(questionIndex);

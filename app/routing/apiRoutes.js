@@ -23,7 +23,7 @@ module.exports = function(app) {
             let scores = item.scores; // scores of the current potential fiend
 
             scores.forEach( (item, index) => {
-                let questionDiff = Math.abs(item - parseInt(userScores[index])); // diff for current question
+                let questionDiff = Math.abs(parseInt(item) - parseInt(userScores[index])); // diff for current question
                 scoreDiff += questionDiff; // adding the current question's diff to the total diff
                 // console.log(scoreDiff);
             });
