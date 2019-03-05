@@ -4,7 +4,7 @@ Friend Finder is an app that matches a user to another user based on the user's 
 The application is built using a Node.js and Express server on the back-end and is using Bootstrap 4 for the front-end. It is deployed in Heroku.
 
 ### Demo
-To see the application in action please visit: https://protected-thicket-28248.herokuapp.com/survey/
+To see the application in action please visit: https://protected-thicket-28248.herokuapp.com/
 
 ## Local Installation
 
