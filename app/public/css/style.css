@@ -87,7 +87,7 @@ h1, h2 {
     content: "Agree";
     text-align: left;
 }
-.answer a {
+.answer button {
     display: inline-block;
     margin: 3px;
     width: 50px;
@@ -101,10 +101,15 @@ h1, h2 {
     vertical-align: middle;
     -webkit-transition: background-color .5s;
     transition: background-color .5s;
+    cursor: pointer;
 }
-.answer a:hover {
+.answer button:hover {
     color: #fff;
     background-color: #444;
+}
+.answer button:focus {
+    box-shadow: none;
+    outline: none;
 }
 /* ----------------------------------------------------------------------------
     Page Media Queries

@@ -22,6 +22,7 @@ const showQuestion = (index) => {
     if (answers.length < questions.length) {
         $(".questions").fadeIn("fast");
         $(".question").html(questions[index]); // display current question
+        $(".answer button").removeAttr("disabled");
     }
     else {
         person.scores = answers;
@@ -58,7 +59,7 @@ const showQuestion = (index) => {
             $(".personal-info").fadeIn("fast");
         });
     }
-}
+};
 
 $(".personal-info").on("click", ".take-survey", function(e) {
     e.preventDefault();
@@ -82,10 +83,11 @@ $(".personal-info").on("click", ".take-survey", function(e) {
         $("#name").addClass("is-invalid").attr("placeholder", "Please enter name");
         $("#photo").addClass("is-invalid").attr("placeholder", "Please enter url");
     }
-})
+});
 
-$(".answer").on("click", "a", function(e) {
+$(".answer").on("click", "button", function(e) {
     e.preventDefault();
+    $(this).attr("disabled", "disabled");
     let answer = $(this).text();
     if (questionIndex < questions.length) {
         answers.push(answer);
@@ -96,4 +98,4 @@ $(".answer").on("click", "a", function(e) {
             showQuestion(questionIndex);
         });
     }
-})
+});
