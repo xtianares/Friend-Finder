@@ -78,10 +78,12 @@ $(".personal-info").on("click", ".take-survey", function(e) {
 
         $("#name").removeClass("is-invalid").attr("placeholder", "");
         $("#photo").removeClass("is-invalid").attr("placeholder", "");
+        $(".personal-info .error-msg").remove();
     }
     else {
         $("#name").addClass("is-invalid").attr("placeholder", "Please enter name");
         $("#photo").addClass("is-invalid").attr("placeholder", "Please enter url");
+        $(".personal-info .take-survey").after("<p class='error-msg text-center text-danger mt-3 mb-0'>Please fill out the form</p>");
     }
 });
 
