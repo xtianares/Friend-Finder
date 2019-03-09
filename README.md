@@ -8,7 +8,7 @@ To see the application in action please visit: https://protected-thicket-28248.h
 
 ## Local Installation
 
-To install the application locally run the commands below in your terminal/bash:
+To install the application locally, run the commands below in your terminal/bash:
 
 ```
 git clone https://github.com/xtianares/Friend-Finder
@@ -26,6 +26,6 @@ node server.js
 Once you get the local server running visit http://localhost:3000/ in your browser.
 
 ### Technologies Used
-NodeJS
-ExpressJS
+NodeJS\
+ExpressJS\
 Twitter Bootstrap 4
