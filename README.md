@@ -11,13 +11,13 @@ To see the application in action please visit: https://protected-thicket-28248.h
 To install the application locally, run the commands below in your terminal/bash:
 
 ```
-git clone https://github.com/xtianares/Friend-Finder
+git clone https://github.com/xtianares/Friend-Finder.git
 cd friend-finder
 npm install
 ```
 
 ## Running Locally
-To start the a local server run this command in your terminal/bash.
+To start the local server run this command in your terminal/bash.
 
 ```
 node server.js
